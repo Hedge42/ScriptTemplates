@@ -1,0 +1,39 @@
+﻿using UnityEngine;
+using System;
+using System.Collections;
+using Object = UnityEngine.Object;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+#ROOTNAMESPACEBEGIN#
+#if UNITY_EDITOR
+public class #SCRIPTNAME# : EditorWindow
+{
+    private const string WINDOW_TITLE = "#SCRIPTNAME#";
+    private const string MENU_ITEM = "Tools/" + WINDOW_TITLE;
+
+    // Called when this window is open or on scripts loaded
+    private void OnEnable()
+    {
+        #NOTRIM#
+    }
+
+    // Opens this editor window
+    [MenuItem(MENU_ITEM)]
+    public static #SCRIPTNAME# Open()
+    {
+        var window = GetWindow<#SCRIPTNAME#>(false, WINDOW_TITLE, true);
+        window.Show();
+        return window;
+    }
+
+    /// <summary> Draws this window GUI on screen. </summary>
+    private void OnGUI()
+    {
+        // GUILayout is okay
+    }
+}
+#endif
+#ROOTNAMESPACEEND#

@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
+using Object = UnityEngine.Object;
+using Debug = UnityEngine.Debug;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+#ROOTNAMESPACEBEGIN#
+#region EDITOR
+#if UNITY_EDITOR
+[CustomEditor(typeof(#SCRIPTNAME#))]
+public class #SCRIPTNAME#Editor : Editor
+{
+	public override void OnInspectorGUI()
+	{
+		base.OnInspectorGUI();
+	}
+}
+#endif
+#endregion
+
+[CreateAssetMenu(menuName = MMM.PATH + nameof(ColorPalette))]
+public class #SCRIPTNAME# : ScriptableObject
+{
+	protected void Reset()
+	{
+		// set defaults
+	}
+
+	protected void OnEnable()
+	{
+		// initialize
+	}
+}
+#ROOTNAMESPACEEND#

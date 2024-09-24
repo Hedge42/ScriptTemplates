@@ -1,0 +1,37 @@
+﻿using UnityEngine;
+using System;
+using System.Collections;
+using Object = UnityEngine.Object;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+#ROOTNAMESPACEBEGIN#
+#region EDITOR
+#if UNITY_EDITOR
+[CustomPropertyDrawer(typeof(#SCRIPTNAME#))]
+public class #SCRIPTNAME#Drawer : PropertyDrawer
+{
+    // Draw the property inside the given rect
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    {
+        EditorGUI.BeginProperty(position, label, property);
+       
+        position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
+ 
+        EditorGUI.EndProperty();
+    }
+}
+#endif
+#endregion
+
+[Serializable]
+public class #SCRIPTNAME#
+{
+	public #SCRIPTNAME#()
+	{
+		// ...
+	}
+}
+#ROOTNAMESPACEEND#
